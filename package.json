@@ -1,0 +1,57 @@
+{
+  "name": "graphql-basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "heroku-postbuild": "babel src --out-dir dist --copy-files",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js --ext js,graphql --exec babel-node",
+    "test": "env-cmd -f ./config/test.env jest --watch --runInBand",
+    "get-schema": "fetch-graphql-schema http://192.168.99.100:4466 -o src/generated/prisma.graphql -r"
+  },
+  "jest": {
+    "globalSetup": "./tests/jest-config/globalSetup.js",
+    "globalTeardown": "./tests/jest-config/globalTeardown.js"
+  },
+  "resolutions": {
+    "graphql": "^0.13.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.4",
+    "apollo-boost": "^0.4.9",
+    "apollo-cache-inmemory": "^1.2.10",
+    "apollo-client": "^2.4.2",
+    "apollo-link": "^1.2.3",
+    "apollo-link-error": "^1.1.1",
+    "apollo-link-http": "^1.5.5",
+    "apollo-link-ws": "^1.0.9",
+    "apollo-utilities": "^1.0.21",
+    "babel-node": "0.0.1-security",
+    "bcryptjs": "^2.4.3",
+    "core-js": "^3.6.5",
+    "cross-fetch": "^3.0.5",
+    "env-cmd": "^10.1.0",
+    "fetch-graphql-schema": "^0.2.1",
+    "graphql": "^0.13.2",
+    "graphql-cli": "^4.0.0",
+    "graphql-yoga": "^1.18.3",
+    "jsonwebtoken": "^8.5.1",
+    "prisma-binding": "^2.3.16",
+    "regenerator-runtime": "^0.13.5",
+    "subscriptions-transport-ws": "^0.9.15"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4"
+  }
+}
